@@ -13,7 +13,14 @@ class AddNinja extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.addNinja(this.state);
+    }
+    addNinja = (ninja) => {
+        ninja.id = Math.random();
+        let ninjas = [...this.state.ninjas, ninja];
+        this.setState({
+          ninjas: ninjas
+        })
     }
     render() {
         return(
